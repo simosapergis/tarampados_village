@@ -1,75 +1,88 @@
-import Image from "next/image";
 import Link from "next/link";
-import { localeLabels, locales } from "@/i18n/config";
+import { PageShell } from "@/components/page-shell";
+
+export const metadata = {
+  title: "Αρχική | Tarampados Village",
+  description:
+    "Επίσημο ψηφιακό σπίτι του Ταραμπάδου, με έμφαση στους περιστεριώνες, την παράδοση και την φιλοξενία του χωριού.",
+};
+
+const greekMenu = [
+  { href: "/to-xorio-mas", label: "Το χωριό μας" },
+  { href: "/klironomia", label: "Κληρονομιά" },
+  { href: "/thriskeia", label: "Θρησκεία" },
+  { href: "/politismos", label: "Πολιτισμός" },
+  { href: "/epikoinonia", label: "Επικοινωνία" },
+];
+
+const localizedHomes = [
+  { href: "/en", label: "English" },
+  { href: "/fr", label: "Français" },
+];
 
 export default function Home() {
-  const localeOptions = locales.map((locale) => (
-    <Link
-      key={locale}
-      href="/"
-      locale={locale}
-      className="flex items-center gap-2 rounded-full border border-black/[.08] px-5 py-2 text-sm font-medium transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-    >
-      <span className="inline-flex h-3 w-3 rounded-full bg-foreground opacity-70" />
-      <span>{localeLabels[locale]}</span>
-    </Link>
-  ));
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-8 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xl text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Tarampados Village on Vercel
-          </h1>
-          <div className="flex flex-col gap-4 text-base leading-7 text-zinc-600 dark:text-zinc-400">
-            <p>
-              This starter is wired for Turbopack-powered development, Tailwind
-              CSS v4, and built-in Next.js i18n routing so we can migrate
-              content from Wix to Vercel with confidence.
-            </p>
-            <p>
-              Use the locale toggles below to preview the automatic routing that
-              Next.js provides. Each link renders this page under its localized
-              route without any custom middleware.
-            </p>
+    <div className="space-y-12">
+      <PageShell
+        title="Αρχική"
+        introduction={[
+          "Καλωσορίσατε στο νέο site του Ταραμπάδου. Ετοιμάζουμε μια εμπειρία που θα αναδείξει την ιστορία του χωριού, τους περιστεριώνες και τις διαδρομές που ενώνουν τους επισκέπτες με τη φύση της Τήνου.",
+          "Το περιεχόμενο μεταφέρεται από το Wix και θα φιλοξενηθεί στο Vercel ώστε να έχουμε ταχύτητα, σταθερότητα και ευελιξία σε τρεις γλώσσες.",
+        ]}
+        highlights={[
+          "Προβολή του οικισμού και των παραδοσιακών κατοικιών.",
+          "Αφιερώματα στην κληρονομιά, τη θρησκεία και τον πολιτισμό.",
+          "Επικαιροποιημένες πληροφορίες επικοινωνίας και φιλοξενίας.",
+        ]}
+        sections={[
+          {
+            heading: "Τι να περιμένετε",
+            paragraphs: [
+              "Κάθε ενότητα θα συνοδεύεται από φωτογραφίες, ιστορίες κατοίκων και πρακτικές συμβουλές για επισκέπτες. Οι σελίδες διατηρούν τις ίδιες διευθύνσεις που χρησιμοποιούμε σήμερα στο ελληνικό site, ώστε να μην επηρεαστούν ήδη κοινοποιημένοι σύνδεσμοι.",
+              "Επιπλέον, οι αγγλικές και γαλλικές εκδόσεις έχουν δικές τους φιλικές slugs για πιο φυσική ανάγνωση από τους επισκέπτες του εξωτερικού.",
+            ],
+          },
+        ]}
+        footerNote="Πρόσθετες ενότητες (διαμονή, εκδηλώσεις, γαστρονομία) μπορούν να ενταχθούν μόλις έχουμε το τελικό περιεχόμενο από την ομάδα."
+      />
+
+      <section className="mx-auto flex w-full max-w-4xl flex-col gap-8 rounded-2xl border border-zinc-200 bg-white/60 p-8 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5">
+        <div>
+          <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
+            Κύριο μενού
+          </h2>
+          <p className="text-sm text-zinc-500">
+            Οι ελληνικές σελίδες διατηρούν slugs χωρίς πρόθεμα.
+          </p>
+        </div>
+        <nav className="flex flex-wrap gap-3">
+          {greekMenu.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium transition hover:border-transparent hover:bg-zinc-900 hover:text-white dark:border-white/20 dark:hover:bg-white dark:hover:text-black"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="border-t border-dashed border-zinc-200 pt-6 dark:border-white/10">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500">
+            International Access
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {localizedHomes.map((locale) => (
+              <Link
+                key={locale.href}
+                href={locale.href}
+                className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium transition hover:border-transparent hover:bg-zinc-900 hover:text-white dark:border-white/20 dark:hover:bg-white dark:hover:text-black"
+              >
+                {locale.label}
+              </Link>
+            ))}
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row">{localeOptions}</div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
     </div>
   );
 }
