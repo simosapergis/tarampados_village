@@ -23,7 +23,7 @@ export default function ContactEn() {
         {
           heading: "Visit planning",
           paragraphs: [
-            "Guided tours, accommodation tips and transfers from Tinos town will be listed here, including forms that sync with Vercel Functions for automated replies.",
+            "Guided tours, accommodation tips and transfers from Tinos town will be listed here, including forms that sync with our serverless functions for automated replies.",
           ],
         },
       ]}

@@ -24,7 +24,7 @@ export default function TermsFr() {
         {
           heading: "Sécurité",
           paragraphs: [
-            "Veuillez éviter toute tentative d’accès non autorisé. Chaque déploiement est tracé via GitHub et Vercel.",
+            "Veuillez éviter toute tentative d’accès non autorisé. Chaque déploiement est tracé via nos journaux de déploiement et de versionnage.",
           ],
         },
       ]}

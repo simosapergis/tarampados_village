@@ -18,7 +18,7 @@ export default function HeritageEn() {
       highlights={[
         "Timeline widget for major restoration milestones.",
         "Map of dovecotes and chapels.",
-        "Gallery sourced from the Wix archive, optimized for the Vercel Edge Network.",
+        "Gallery sourced from the Wix archive, optimized for fast loading worldwide.",
       ]}
       footerLocale="en"
     />

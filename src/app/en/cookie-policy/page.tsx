@@ -25,7 +25,7 @@ export default function CookiesEn() {
         {
           heading: "Control",
           paragraphs: [
-            "Visitors will be able to update their preferences at any time. Consent logs will be stored securely on Vercel.",
+            "Visitors will be able to update their preferences at any time. Consent logs will be stored securely on our infrastructure.",
           ],
         },
       ]}

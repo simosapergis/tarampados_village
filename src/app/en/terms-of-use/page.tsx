@@ -24,7 +24,7 @@ export default function TermsEn() {
         {
           heading: "Responsible browsing",
           paragraphs: [
-            "Do not attempt to interfere with the infrastructure or probe private endpoints. Changes are audited through Git and Vercel deployments.",
+            "Do not attempt to interfere with the infrastructure or probe private endpoints. Changes are audited through our deployment and version-control logs.",
           ],
         },
       ]}

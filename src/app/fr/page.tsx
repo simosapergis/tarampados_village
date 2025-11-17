@@ -27,7 +27,7 @@ export default function HomeFr() {
         ]}
         highlights={[
           "Parcours bilingues pour les visiteurs internationaux.",
-          "Contenus multimédias optimisés pour le réseau Edge de Vercel.",
+          "Contenus multimédias optimisés pour un réseau de diffusion rapide.",
           "Formulaires adaptés aux demandes de presse et aux séjours.",
         ]}
         footerLocale="fr"

@@ -19,7 +19,7 @@ export default function CookiesFr() {
           heading: "Types de cookies",
           paragraphs: [
             "Essentiels : mémorisation de la langue et sécurité de session.",
-            "Statistiques : mesure anonyme de la fréquentation grâce aux outils proposés par Vercel.",
+            "Statistiques : mesure anonyme de la fréquentation via l’outil d’analyse retenu.",
           ],
         },
         {

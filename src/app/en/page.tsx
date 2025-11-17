@@ -23,7 +23,7 @@ export default function HomeEn() {
         title="Home"
         introduction={[
           "Welcome to the English preview of Tarampados Village. This area mirrors the structure of the Greek site while using slugs and copy that make sense for international visitors.",
-          "As we migrate from Wix to Vercel, we will keep the same hierarchy: an overview, a heritage hub with Religion and Culture detail pages, and a refreshed contact section.",
+          "As we migrate away from Wix, we will keep the same hierarchy: an overview, a heritage hub with Religion and Culture detail pages, and a refreshed contact section.",
         ]}
         highlights={[
           "Static routes optimized for `/en` prefixes.",
