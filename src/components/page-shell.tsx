@@ -1,9 +1,11 @@
 import type { Locale } from "@/i18n/config";
 import { SiteFooter } from "@/components/site-footer";
 
+import type { ReactNode } from "react";
+
 type Section = {
   heading: string;
-  paragraphs: string[];
+  paragraphs: ReactNode[];
 };
 
 type PageShellProps = {
