@@ -1,20 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageShell } from "@/components/page-shell";
 
 export const metadata: Metadata = {
   title: "Home | Tarampados Village",
   description:
-    "English overview for Tarampados Village with direct access to heritage, religion, culture and contact information.",
+    "Discover the beauty, tradition and culture of Tarampados Village in English.",
 };
-
-const englishMenu = [
-  { href: "/en/our-village", label: "Our Village" },
-  { href: "/en/heritage", label: "Heritage" },
-  { href: "/en/religion", label: "Religion" },
-  { href: "/en/culture", label: "Culture" },
-  { href: "/en/contact", label: "Contact" },
-];
 
 export default function HomeEn() {
   return (
@@ -22,35 +13,42 @@ export default function HomeEn() {
       <PageShell
         title="Home"
         introduction={[
-          "Welcome to the English preview of Tarampados Village. This area mirrors the structure of the Greek site while using slugs and copy that make sense for international visitors.",
-          "As we migrate away from Wix, we will keep the same hierarchy: an overview, a heritage hub with Religion and Culture detail pages, and a refreshed contact section.",
+          "Discover the beauty, tradition and culture of our village. Tarambados invites international visitors to explore its ravines, dovecotes and living customs.",
+          "These sections mirror the organization of the Greek site so that all audiences can follow the same routes and stories.",
         ]}
         highlights={[
-          "Static routes optimized for `/en` prefixes.",
-          "Support for heritage storytelling with photo essays and interviews.",
-          "Contact details tailored for travel partners and media.",
+          "About Us: a village built in the 17th century after tragic epidemics.",
+          "Dovecotes: slate-built heritage monuments that supplied fertilizer and storage.",
+          "“Bebum Karum”: a Christmas custom pairing family gatherings with the Divine Liturgy.",
         ]}
         sections={[
           {
-            heading: "Navigation",
+            heading: "About Us",
             paragraphs: [
-              "Use the buttons below to jump into the sections that will soon host the reworked content. Each page exposes the final slug so we can update menus, QR codes, and third-party references in advance.",
+              "The village of Tarambados, one of the last to be built on Tinos, developed gradually after tragic events such as epidemics. With roots in the 17th century, it replaced older settlements, combining history and tradition through architecture and feudal organization.",
+            ],
+          },
+          {
+            heading: "Dovecotes",
+            paragraphs: [
+              "The dovecotes of the Tarambados Valley are cultural heritage monuments. Made of slate, they serve as pigeon houses that provide fertilizer, as well as storage spaces. Their art originates from Italy and flourished particularly during the Venetian occupation.",
+            ],
+          },
+          {
+            heading: "“Bebum Karum”",
+            paragraphs: [
+              "A Christmas custom that combines family gatherings with the Divine Liturgy. Grilled sausage, symbolizing the flesh, and fish soup are characteristic meals that accompany the spiritual celebration of the Incarnation.",
+            ],
+          },
+          {
+            heading: "Religion",
+            paragraphs: [
+              "The area's churches, such as Agios Michael and Panagia Vrysiotissa, are symbols of religious and cultural value. With a history spanning centuries, they connect faith with traditions such as processions and blessings of guides.",
             ],
           },
         ]}
         footerLocale="en"
       />
-      <section className="mx-auto flex w-full max-w-4xl flex-wrap gap-3 rounded-2xl border border-zinc-200 bg-white/60 p-8 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5">
-        {englishMenu.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium transition hover:border-transparent hover:bg-zinc-900 hover:text-white dark:border-white/20 dark:hover:bg-white dark:hover:text-black"
-          >
-            {item.label}
-          </Link>
-        ))}
-      </section>
     </div>
   );
 }
