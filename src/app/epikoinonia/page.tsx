@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
+import { SiteFooter } from "@/components/site-footer";
 
 const contactDetails = [
   { label: "Email", value: "tarampados@gmail.com", href: "mailto:tarampados@gmail.com" },
   { label: "Διεύθυνση", value: "Ταραμπάδος, Κυκλάδες, Ελλάδα" },
   { label: "Τ.Κ.", value: "842 00" },
-];
-
-const policyLinks = [
-  { label: "Πολιτική Απορρήτου", href: "/politiki-aporritou" },
-  { label: "Πολιτική Χρήσης", href: "/politiki-chrisis" },
-  { label: "Πολιτική Cookies", href: "/politiki-cookies" },
 ];
 
 export const metadata: Metadata = {
@@ -65,56 +60,43 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-3">
-        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/5">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-            Σύλλογος Ταραμπάδου Τήνου
-          </h2>
-          <p className="mt-3 text-lg font-semibold">
-            Ταραμπάδος, Κυκλάδες, Ελλάδα
-          </p>
-          <p className="text-sm text-zinc-500 dark:text-zinc-300">Τ.Κ. 842 00</p>
-          <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-300">
-            Εξωραϊστικός & Εκπολιτιστικός Σύλλογος Ταραμπάδου Τήνου
-            <br />
-            ΑΦΜ: 099053786 · ΔΟΥ: Σύρου
-          </p>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/5">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-            Πολιτικές & πόροι
-          </h2>
-          <ul className="mt-4 space-y-2">
-            {policyLinks.map((policy) => (
-              <li key={policy.label}>
-                <Link
-                  href={policy.href}
-                  className="text-base font-medium text-slate-900 underline-offset-2 hover:underline dark:text-white"
-                >
-                  {policy.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/5">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-            Social
-          </h2>
-          <p className="mt-3 text-sm text-zinc-500 dark:text-zinc-300">
-            Μείνετε συντονισμένοι για ενημερώσεις σχετικά με εκδηλώσεις,
-            προγράμματα και νέες καταχωρίσεις.
-          </p>
-          <Link
-            href="https://www.facebook.com"
-            className="mt-4 inline-flex items-center gap-2 rounded-full border border-zinc-300 px-5 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:bg-zinc-900 hover:text-white dark:border-white/20 dark:hover:bg-white dark:hover:text-black"
-          >
-            Facebook
-          </Link>
+      <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/5">
+        <div className="grid gap-0 md:grid-cols-2">
+          <div className="space-y-4 p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-zinc-500 dark:text-zinc-400">
+              Τοποθεσία
+            </p>
+            <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
+              Ταραμπάδος, Τήνος
+            </h2>
+            <p className="text-sm text-zinc-500 dark:text-zinc-300">
+              Παρακάτω μπορείτε να δείτε την ακριβή τοποθεσία του χωριού και να
+              σχεδιάσετε τη διαδρομή σας προς τον Ταραμπάδο.
+            </p>
+            <Link
+              href="https://www.google.com/maps/dir/37.9199132,23.7283557/%CE%A4%CE%B1%CF%81%CE%B1%CE%BC%CF%80%CE%B1%CE%B4%CE%BF%CF%82,+842+00/@37.7711106,23.1293091,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x14a2ec4b07a63d33:0xdfb341d843d6579b!2m2!1d25.1439932!2d37.5797967?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-5 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:bg-zinc-900 hover:text-white dark:border-white/20 dark:hover:bg-white dark:hover:text-black"
+            >
+              Άνοιγμα στο Google Maps
+            </Link>
+          </div>
+          <div className="min-h-[320px]">
+            <iframe
+              title="Χάρτης Ταραμπάδου"
+              src="https://maps.google.com/maps?q=37.5797967,25.1439932&z=14&output=embed"
+              width="100%"
+              height="100%"
+              className="h-full min-h-[300px] w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </section>
+
+      <SiteFooter locale="el" />
     </div>
   );
 }
