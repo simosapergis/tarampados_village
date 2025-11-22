@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/page-shell";
+import { HomeCarousel } from "@/components/home-carousel";
 
 export const metadata = {
   title: "Αρχική | Tarampados Village",
@@ -20,6 +21,7 @@ export default function Home() {
           "Το χριστουγεννιάτικο έθιμο «Μπέμπουμ Κάρουμ» συνδυάζει την οικογενειακή συνάθροιση με τη Θεία Λειτουργία, όπου το ψητό λουκάνικο και η ψαρόσουπα συνοδεύουν την πνευματική γιορτή της Ενσάρκωσης.",
           "Οι ναοί της περιοχής, όπως του Αγίου Μιχαήλ και της Παναγίας Βρυσιώτισσας, είναι σύμβολα θρησκευτικής και πολιτιστικής αξίας, ενώ οι λιτανείες και οι ευλογίες οδηγών συνεχίζουν την παράδοση αιώνων.",
         ]}
+        afterHero={<HomeCarousel locale="el" />}
         locale="el"
       />
 

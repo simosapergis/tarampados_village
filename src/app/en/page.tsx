@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
+import { HomeCarousel } from "@/components/home-carousel";
 
 export const metadata: Metadata = {
   title: "Home | Tarampados Village",
@@ -21,6 +22,7 @@ export default function HomeEn() {
           "\"Bebum Karum\" is a Christmas custom that combines family gatherings with the Divine Liturgy. Grilled sausage, symbolizing the flesh, and fish soup are characteristic meals that accompany the spiritual celebration of the Incarnation.",
           "The area's churches, such as Agios Michael and Panagia Vrysiotissa, are symbols of religious and cultural value. With a history spanning centuries, they connect faith with traditions such as processions and blessings of guides.",
         ]}
+        afterHero={<HomeCarousel locale="en" />}
         locale="en"
       />
     </div>

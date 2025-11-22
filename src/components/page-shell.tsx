@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Locale } from "@/i18n/config";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -15,8 +16,10 @@ type PageShellProps = {
   highlights?: string[];
   footerNote?: string;
   heroImage?: string;
+  heroFit?: "repeat" | "cover" | "contain";
   locale: Locale;
   showFooter?: boolean;
+  afterHero?: ReactNode;
 };
 
 const eyebrowCopy: Record<Locale, string> = {
@@ -32,8 +35,10 @@ export function PageShell({
   highlights: _highlights = [],
   footerNote,
   heroImage,
+  heroFit = "repeat",
   locale,
   showFooter = true,
+  afterHero,
 }: PageShellProps) {
   void _highlights;
   const eyebrowClass = heroImage
@@ -49,13 +54,27 @@ export function PageShell({
   return (
     <div className="bg-stone-50 text-stone-900">
       {heroImage && (
-        <section
-          className="relative w-full bg-repeat"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: "auto 100%",
-          }}
-        >
+        <section className="relative w-full overflow-hidden">
+          {heroFit === "repeat" ? (
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url(${heroImage})`,
+                backgroundRepeat: "repeat",
+                backgroundSize: "auto 100%",
+                backgroundPosition: "center",
+              }}
+            />
+          ) : (
+            <Image
+              src={heroImage}
+              alt=""
+              fill
+              priority
+              className="object-cover"
+              style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
           <div className="relative z-10 mx-auto flex min-h-[420px] w-full max-w-6xl items-end px-6 py-12">
             <div className="w-full rounded-3xl border border-white/20 bg-black/40 p-10 shadow-2xl backdrop-blur-lg">
@@ -70,6 +89,8 @@ export function PageShell({
           </div>
         </section>
       )}
+
+      {afterHero && <div className="px-6 pb-12">{afterHero}</div>}
 
       <div className="flex justify-center px-6 py-16">
         <article className="w-full max-w-4xl space-y-12">
@@ -86,12 +107,24 @@ export function PageShell({
           )}
 
           {sections.map((section) => (
-            <section key={section.heading} className="space-y-3">
-              <h2 className="text-2xl font-serif text-stone-900">{section.heading}</h2>
+            <section key={section.heading as string} className="space-y-3">
+              <h2 className="text-2xl font-serif text-stone-900">
+                <span className="relative inline-flex">
+                  <span className="relative z-10">{section.heading}</span>
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 bottom-0 h-2 rounded-full bg-gradient-to-r from-amber-200/80 via-amber-100/40 to-transparent"
+                  />
+                </span>
+              </h2>
               <div className="space-y-3 text-lg leading-8 text-stone-700">
-                {section.paragraphs.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
+                {section.paragraphs.map((paragraph, index) =>
+                  typeof paragraph === "string" ? (
+                    <p key={index}>{paragraph}</p>
+                  ) : (
+                    <div key={index}>{paragraph}</div>
+                  )
+                )}
               </div>
             </section>
           ))}
