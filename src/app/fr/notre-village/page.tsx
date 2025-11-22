@@ -21,7 +21,7 @@ export default function NotreVillageFr() {
         "Le père Markos Foskolos, dans « Tinos au-delà des murs », mentionne la disparition définitive de Mesarea en 1728, le déplacement des habitants de Karados vers Xinara en 1753 et l’intégration de Potamos à la paroisse de Smardakito dès 1642, avec la naissance progressive de Tarampados.",
         "Les archives évoquent également un testament rédigé à Kouroupados en 1769 pendant une épidémie de peste : les malades étaient isolés derrière des murs ne laissant qu’une petite ouverture pour l’eau et la nourriture.",
       ]}
-      footerLocale="fr"
+      locale="fr"
     />
   );
 }

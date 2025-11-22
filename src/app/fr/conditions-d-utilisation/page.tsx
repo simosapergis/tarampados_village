@@ -28,7 +28,7 @@ export default function TermsFr() {
           ],
         },
       ]}
-      footerLocale="fr"
+      locale="fr"
     />
   );
 }

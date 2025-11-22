@@ -27,6 +27,18 @@ const localeLabel: Record<Locale, string> = {
   fr: "Tarampados",
 };
 
+const localeHeadline: Record<Locale, string> = {
+  el: "Χωριό των Κυκλάδων με ιστορία & φιλοξενία",
+  en: "Cycladic village with history & hospitality",
+  fr: "Village des Cyclades avec histoire et hospitalité",
+};
+
+const localeDescriptionCopy: Record<Locale, string> = {
+  el: "Ψηφιακό αρχείο για τις διαδρομές, τις παραδόσεις και τις γλώσσες του Ταραμπάδου.",
+  en: "Digital archive for the routes, traditions, and languages of Tarampados.",
+  fr: "Archive numérique des itinéraires, des traditions et des langues de Tarampados.",
+};
+
 export function SiteHeader() {
   const pathname = usePathname();
   const activeLocale = resolveLocale(pathname);
@@ -41,11 +53,10 @@ export function SiteHeader() {
               {localeLabel[activeLocale]}
             </p>
             <h1 className="text-2xl font-semibold tracking-tight text-white">
-              Χωριό των Κυκλάδων με ιστορία &amp; φιλοξενία
+              {localeHeadline[activeLocale]}
             </h1>
             <p className="text-sm text-slate-200">
-              Ψηφιακό αρχείο για τις διαδρομές, τις παραδόσεις και τις
-              γλώσσες του Ταραμπάδου.
+              {localeDescriptionCopy[activeLocale]}
             </p>
           </div>
           <div className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-sky-100">

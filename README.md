@@ -32,3 +32,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ## Deployment
 
 Check out the official [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for platform-agnostic instructions.
+
+## Email delivery
+
+The `/api/contact` route uses [Resend](https://resend.com) to send the contact-form submissions. Configure the following environment variables before deploying:
+
+```
+RESEND_API_KEY=...
+RESEND_FROM_EMAIL="Tarampados Village <contact@tarampados.gr>"
+RESEND_TO_EMAIL=tarampados@gmail.com
+```
+
+Make sure `RESEND_FROM_EMAIL` belongs to a verified domain. If your domain DNS is managed outside Wix, add the TXT + CNAME records at the registrar (GoDaddy, Namecheap, Cloudflare, etc.). Otherwise, move DNS to a provider that allows adding Resend’s SPF/DKIM entries while keeping the existing A/CNAME records that point to Wix.

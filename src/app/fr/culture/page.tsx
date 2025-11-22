@@ -25,7 +25,7 @@ export default function CultureFr() {
           ],
         },
       ]}
-      footerLocale="fr"
+      locale="fr"
     />
   );
 }

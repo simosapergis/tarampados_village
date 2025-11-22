@@ -50,7 +50,7 @@ export default function PrivacyPolicyEn() {
           ],
         },
       ]}
-      footerLocale="en"
+      locale="en"
     />
   );
 }

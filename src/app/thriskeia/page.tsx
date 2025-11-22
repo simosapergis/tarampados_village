@@ -104,7 +104,7 @@ export default function ReligionPage() {
           ],
         },
       ]}
-      footerLocale="el"
+      locale="el"
     />
   );
 }

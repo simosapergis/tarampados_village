@@ -118,7 +118,7 @@ export default function ReligionEn() {
           ],
         },
       ]}
-      footerLocale="en"
+      locale="en"
     />
   );
 }

@@ -27,7 +27,7 @@ export default function ContactEn() {
           ],
         },
       ]}
-      footerLocale="en"
+      locale="en"
     />
   );
 }

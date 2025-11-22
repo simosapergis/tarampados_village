@@ -89,7 +89,7 @@ export default function ReligionFr() {
           ],
         },
       ]}
-      footerLocale="fr"
+      locale="fr"
     />
   );
 }

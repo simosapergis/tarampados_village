@@ -20,7 +20,7 @@ export default function OurVillageEn() {
         "The suffix -ados is typical of most settlements built during the Gizokrazia (1207‑1390) and the Venetian rule (1390‑1715), when poor farmers clustered around estates of wealthy landowners.",
         "Fr. Markos Foskolos notes the disappearance of Mesarea in 1728, the move of Karados residents to Xinara in 1753, and the incorporation of Potamos into the Smardaitos parish in 1642. Documents also describe a 1769 will in Kurupado during a plague outbreak where the sick were walled in with only small openings for food and water.",
       ]}
-      footerLocale="en"
+      locale="en"
     />
   );
 }
