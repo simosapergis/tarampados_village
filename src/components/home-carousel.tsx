@@ -12,7 +12,7 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    src: "/images/home_carousel/air_view.jpg",
+    src: "/images/home_carousel/air_view.webp",
     captions: {
       el: "Αεροφωτογραφία της κοιλάδας Ταραμπάδου με θέα τα χωριά της Μεσαριάς.",
       en: "Aerial perspective of the Tarampados valley and the villages of Mesaria.",
@@ -25,7 +25,7 @@ const slides: Slide[] = [
     },
   },
   {
-    src: "/images/home_carousel/church_pigeon_houses.jpg",
+    src: "/images/home_carousel/church_pigeon_houses.webp",
     captions: {
       el: "Η εκκλησία και οι περιστεριώνες συνθέτουν τοπία πίστης και λαϊκής αρχιτεκτονικής.",
       en: "Church facades and dovecotes highlight the blend of faith and folk architecture.",
@@ -38,7 +38,7 @@ const slides: Slide[] = [
     },
   },
   {
-    src: "/images/home_carousel/party.jpg",
+    src: "/images/home_carousel/party.webp",
     captions: {
       el: "Γιορτινό τραπέζι με μαγειρέματα που συνοδεύουν κάθε πανηγύρι.",
       en: "Festive table with homemade dishes for village celebrations.",
@@ -51,7 +51,7 @@ const slides: Slide[] = [
     },
   },
   {
-    src: "/images/home_carousel/pidgeon_house.jpg",
+    src: "/images/home_carousel/pidgeon_house.webp",
     captions: {
       el: "Λεπτομέρεια από παραδοσιακό περιστεριώνα με σχιστόλιθο και γεωμετρικά μοτίβα.",
       en: "Detail of a traditional slate dovecote with geometric motifs.",
@@ -64,7 +64,7 @@ const slides: Slide[] = [
     },
   },
   {
-    src: "/images/home_carousel/sunset.jpg",
+    src: "/images/home_carousel/sunset.webp",
     captions: {
       el: "Δειλινό πάνω από τους θόλους και τα μονοπάτια του Ταραμπάδου.",
       en: "Sunset over Tarampados domes and paths.",
@@ -77,7 +77,7 @@ const slides: Slide[] = [
     },
   },
   {
-    src: "/images/home_carousel/village_center.jpg",
+    src: "/images/home_carousel/village_center.webp",
     captions: {
       el: "Το κέντρο του χωριού με τις καμάρες και τα ασβεστωμένα σπίτια.",
       en: "The village center with arches and whitewashed houses.",
@@ -90,7 +90,7 @@ const slides: Slide[] = [
     },
   },
   {
-    src: "/images/home_carousel/village_map.jpg",
+    src: "/images/home_carousel/village_map.webp",
     captions: {
       el: "Τοπική σήμανση που καθοδηγεί τους επισκέπτες στις διαδρομές.",
       en: "Wayfinding signage that guides visitors along the trails.",
