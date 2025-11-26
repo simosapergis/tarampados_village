@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PageShell } from "@/components/page-shell";
+import heroReligion from "@public/images/hero/religion.webp";
 
 export const metadata: Metadata = {
   title: "Θρησκεία | Tarampados Village",
@@ -12,7 +13,7 @@ export default function ReligionPage() {
   return (
     <PageShell
       title="Θρησκεία"
-      heroImage="/images/hero/religion.webp"
+      heroImage={heroReligion}
       heroFit="cover"
       introduction={[
         "Εδώ βρείτε αυθεντικά κείμενα με ιστορικά στοιχεία, πανηγύρια, θαύματα και τελετουργίες όπως τα παραδίδει η κοινότητα του Ταραμπάδου.",

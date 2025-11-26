@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
+import heroVillage from "@public/images/hero/our_village.webp";
 
 export const metadata: Metadata = {
   title: "Το χωριό μας | Tarampados Village",
@@ -11,7 +12,7 @@ export default function VillagePage() {
   return (
     <PageShell
       title="Το χωριό μας"
-      heroImage="/images/hero/our_village.webp"
+      heroImage={heroVillage}
       introduction={[
         "Μικροί στενοί δρόμοι, καμάρες, σταύλοι και κατώγια κάτω από τα σπίτια. Άνθρωποι αγαθοί, απλοί, φιλόξενοι, χαμογελαστοί. Χωριό αγροτικό, όπως τα περισσότερα, το οποίο συνορεύει σήμερα με αυτά του Κάμπου και του Σμαρδακίτου.",
         "Κάποτε, ωστόσο, η περιοχή της Μεσαριάς (Μέσα Μέρη Τήνου), η οποία βρίσκεται στο κέντρο του νησιού. Οι κάτοικοι των τριών χωριών, δηλαδή της Μεσαρέας, Καράδου και Κουρουπάδου, είτε πέθαναν είτε μετανάστευσαν εξαιτίας της επιδημίας πανούκλας στα μισά του 17ου αιώνα. Ο Ταραμπάδος είναι το τελευταίο χωριό που χτίστηκε στο νησί.",

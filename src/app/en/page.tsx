@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
 import { HomeCarousel } from "@/components/home-carousel";
+import heroHome from "@public/images/hero/home_1.webp";
 
 export const metadata: Metadata = {
   title: "Home | Tarampados Village",
@@ -13,7 +14,7 @@ export default function HomeEn() {
     <div className="space-y-12">
       <PageShell
         title="Home"
-        heroImage="/images/hero/home_1.webp"
+        heroImage={heroHome}
         introduction={[
           "Discover the beauty, tradition and culture of our village. Tarambados invites international visitors to explore its ravines, dovecotes and living customs.",
           "These sections mirror the organization of the Greek site so that all audiences can follow the same routes and stories.",

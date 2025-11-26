@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
+import heroVillage from "@public/images/hero/our_village.webp";
 
 export const metadata: Metadata = {
   title: "Notre village | Tarampados Village",
@@ -11,7 +12,7 @@ export default function NotreVillageFr() {
   return (
     <PageShell
       title="Notre village"
-      heroImage="/images/hero/our_village.webp"
+      heroImage={heroVillage}
       introduction={[
         "De petites ruelles étroites, des arcades, des étables et des caves sous les maisons. Des habitants gentils, simples, accueillants et souriants forment la signature de Tarampados.",
         "Village agricole comme la plupart, il jouxte aujourd’hui ceux de Kambos et de Smardakito. Autrefois, la région de Mesaria (le centre de l’île de Tinos) regroupait Mesarea, Karados et Kouroupados avant qu’une épidémie de peste au XVIIe siècle ne pousse leurs habitants à émigrer. Tarampados est alors devenu le dernier village construit sur l’île.",

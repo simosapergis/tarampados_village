@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import type { Locale } from "@/i18n/config";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -15,7 +15,7 @@ type PageShellProps = {
   sections?: Section[];
   highlights?: string[];
   footerNote?: string;
-  heroImage?: string;
+  heroImage?: string | StaticImageData;
   heroFit?: "repeat" | "cover" | "contain";
   locale: Locale;
   showFooter?: boolean;
@@ -59,7 +59,7 @@ export function PageShell({
             <div
               className="absolute inset-0"
               style={{
-                backgroundImage: `url(${heroImage})`,
+                backgroundImage: `url(${typeof heroImage === "string" ? heroImage : heroImage.src})`,
                 backgroundRepeat: "repeat",
                 backgroundSize: "auto 100%",
                 backgroundPosition: "center",
@@ -73,6 +73,9 @@ export function PageShell({
               priority
               className="object-cover"
               style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
+              {...(typeof heroImage === "object" && "blurDataURL" in heroImage && heroImage.blurDataURL
+                ? { placeholder: "blur", blurDataURL: heroImage.blurDataURL }
+                : { placeholder: "empty" })}
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />

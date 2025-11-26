@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PageShell } from "@/components/page-shell";
+import heroCulture from "@public/images/hero/culture.webp";
 
 export const metadata: Metadata = {
   title: "Culture | Tarampados Village",
@@ -17,7 +18,7 @@ export default function CultureEn() {
   return (
     <PageShell
       title="Culture"
-      heroImage="/images/hero/culture.webp"
+      heroImage={heroCulture}
       heroFit="cover"
       introduction={[
         "In the valley of Tarambados and on the plateaus to its right and left, there are most and some of the oldest and best decorated dovecotes on the island.",    

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PageShell } from "@/components/page-shell";
+import heroCulture from "@public/images/hero/culture.webp";
 
 export const metadata: Metadata = {
   title: "Culture | Tarampados Village",
@@ -17,7 +18,7 @@ export default function CultureFr() {
   return (
     <PageShell
       title="Culture"
-      heroImage="/images/hero/culture.webp"
+      heroImage={heroCulture}
       heroFit="cover"
       introduction={[
         "Dans la vallée de Tarabados et sur les plateaux de chaque côté se trouvent certains des plus anciens et des mieux décorés colombiers de l'île.",    
