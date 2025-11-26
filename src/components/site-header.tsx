@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { navLinks, translatePathname } from "@/lib/navigation";
 import { localeLabels, locales, type Locale } from "@/i18n/config";
 
@@ -39,6 +40,75 @@ const localeDescriptionCopy: Record<Locale, string> = {
   fr: "Archive numérique des itinéraires, des traditions et des langues de Tarampados.",
 };
 
+function LocaleDropdown({
+  activeLocale,
+  pathname,
+}: {
+  activeLocale: Locale;
+  pathname: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(event: MouseEvent) {
+      if (!containerRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
+
+  return (
+    <div className="relative" ref={containerRef}>
+      <button
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        className="flex items-center gap-2 rounded-full border border-white/40 px-4 py-2 text-sm font-medium text-white transition hover:border-white hover:bg-white/10"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        {localeLabels[activeLocale]}
+        <svg
+          className={`h-4 w-4 transition ${open ? "rotate-180" : ""}`}
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 7.5L10 12.5L15 7.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      {open && (
+        <div className="absolute right-0 z-30 mt-2 w-44 rounded-2xl border border-white/15 bg-slate-900/90 p-1 text-sm shadow-2xl backdrop-blur">
+          {locales.map((locale) => (
+            <Link
+              key={locale}
+              href={translatePathname(pathname, locale)}
+              className={[
+                "block rounded-xl px-3 py-2 font-medium transition",
+                locale === activeLocale
+                  ? "bg-white text-slate-900"
+                  : "text-white hover:bg-white/10",
+              ].join(" ")}
+              onClick={() => setOpen(false)}
+            >
+              {localeLabels[locale]}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   const activeLocale = resolveLocale(pathname);
@@ -63,47 +133,31 @@ export function SiteHeader() {
             {localeBadge[activeLocale]}
           </div>
         </div>
-        <nav className="flex flex-wrap gap-2">
-          {links.map((link) => {
-            const exactMatch = pathname === link.href;
-            const childMatch =
-              link.key !== "home" && pathname.startsWith(`${link.href}/`);
-            const isActive = exactMatch || childMatch;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={[
-                  "rounded-full border px-4 py-2 text-sm font-medium transition",
-                  isActive
-                    ? "border-white bg-white text-slate-900"
-                    : "border-white/30 text-white hover:border-white hover:bg-white/10",
-                ].join(" ")}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+        <nav className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap gap-2">
+            {links.map((link) => {
+              const exactMatch = pathname === link.href;
+              const childMatch =
+                link.key !== "home" && pathname.startsWith(`${link.href}/`);
+              const isActive = exactMatch || childMatch;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={[
+                    "rounded-full border px-4 py-2 text-sm font-medium transition",
+                    isActive
+                      ? "border-white bg-white text-slate-900"
+                      : "border-white/30 text-white hover:border-white hover:bg-white/10",
+                  ].join(" ")}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+          <LocaleDropdown activeLocale={activeLocale} pathname={pathname} />
         </nav>
-        <div className="flex flex-wrap gap-2">
-          {locales.map((locale) => {
-            const isActive = activeLocale === locale;
-            return (
-              <Link
-                key={locale}
-                href={translatePathname(pathname, locale)}
-                className={[
-                  "rounded-full px-3 py-1.5 text-sm font-medium transition",
-                  isActive
-                    ? "bg-white text-slate-900"
-                    : "bg-white/10 text-white hover:bg-white/20",
-                ].join(" ")}
-              >
-                {localeLabels[locale]}
-              </Link>
-            );
-          })}
-        </div>
       </div>
     </header>
   );
