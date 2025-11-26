@@ -76,10 +76,10 @@ export function PageShell({
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-          <div className="relative z-10 mx-auto flex min-h-[420px] w-full max-w-6xl items-end px-6 py-12">
+          <div className="relative z-10 mx-auto flex min-h-[80svh] w-full max-w-6xl items-end px-6 py-12">
             <div className="w-full rounded-3xl border border-white/20 bg-black/40 p-10 shadow-2xl backdrop-blur-lg">
               <p className={eyebrowClass}>{eyebrowCopy[locale]}</p>
-              <h1 className={titleClass}>{title}</h1>
+              <h1 className={`${titleClass} py-5`}>{title}</h1>
               <div className={introClass}>
                 {introduction.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
