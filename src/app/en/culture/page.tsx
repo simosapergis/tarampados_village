@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const pigeonHouseImages = Array.from(
   { length: 6 },
-  (_, index) => `/images/pidgeon_houses/h_${index + 1}.avif`
+  (_, index) => `/images/pages/pigeon_houses/h_${index + 1}.avif`
 );
 
 export default function CultureEn() {
