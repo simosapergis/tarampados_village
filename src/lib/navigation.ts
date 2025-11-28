@@ -4,7 +4,7 @@ type LocalePaths = Record<Locale, string>;
 
 export type RouteKey =
   | "home"
-  | "village"
+  | "history"
   | "religion"
   | "culture"
   | "contact"
@@ -14,10 +14,10 @@ export type RouteKey =
 
 const localeRoutes: Record<RouteKey, LocalePaths> = {
   home: { el: "/", en: "/en", fr: "/fr" },
-  village: {
-    el: "/to-xorio-mas",
-    en: "/en/our-village",
-    fr: "/fr/notre-village",
+  history: {
+    el: "/istoria",
+    en: "/en/history",
+    fr: "/fr/histoire",
   },
   religion: {
     el: "/thriskeia",
@@ -53,7 +53,7 @@ const localeRoutes: Record<RouteKey, LocalePaths> = {
 
 const navOrder: RouteKey[] = [
   "home",
-  "village",
+  "history",
   "religion",
   "culture",
   "contact",
@@ -62,7 +62,7 @@ const navOrder: RouteKey[] = [
 const navLabels: Record<Locale, Record<RouteKey, string>> = {
   el: {
     home: "Αρχική",
-    village: "Το χωριό μας",
+    history: "Ιστορία",
     religion: "Θρησκεία",
     culture: "Πολιτισμός",
     contact: "Επικοινωνία",
@@ -72,7 +72,7 @@ const navLabels: Record<Locale, Record<RouteKey, string>> = {
   },
   en: {
     home: "Home",
-    village: "Our Village",
+    history: "History",
     religion: "Religion",
     culture: "Culture",
     contact: "Contact",
@@ -82,7 +82,7 @@ const navLabels: Record<Locale, Record<RouteKey, string>> = {
   },
   fr: {
     home: "Accueil",
-    village: "Notre village",
+    history: "Histoire",
     religion: "Religion",
     culture: "Culture",
     contact: "Contact",

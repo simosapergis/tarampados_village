@@ -3,15 +3,15 @@ import { PageShell } from "@/components/page-shell";
 import heroVillage from "@public/images/hero/our_village.webp";
 
 export const metadata: Metadata = {
-  title: "Notre village | Tarampados Village",
+  title: "Histoire | Tarampados Village",
   description:
-    "Présentation du village de Tarampados pour le public francophone.",
+    "Présentation de l’histoire du village de Tarampados pour le public francophone.",
 };
 
-export default function NotreVillageFr() {
+export default function HistoireFr() {
   return (
     <PageShell
-      title="Notre village"
+      title="Histoire"
       heroImage={heroVillage}
       introduction={[
         "De petites ruelles étroites, des arcades, des étables et des caves sous les maisons. Des habitants gentils, simples, accueillants et souriants forment la signature de Tarampados.",

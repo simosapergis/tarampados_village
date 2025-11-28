@@ -3,7 +3,7 @@ import { PageShell } from "@/components/page-shell";
 import heroVillage from "@public/images/hero/our_village.webp";
 
 export const metadata: Metadata = {
-  title: "Το χωριό μας | Tarampados Village",
+  title: "Ιστορία | Tarampados Village",
   description:
     "Παρουσίαση του οικισμού Ταραμπάδου, της ιστορίας του και των ανθρώπων που τον κρατούν ζωντανό.",
 };
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function VillagePage() {
   return (
     <PageShell
-      title="Το χωριό μας"
+      title="Ιστορία"
       heroImage={heroVillage}
       introduction={[
         "Μικροί στενοί δρόμοι, καμάρες, σταύλοι και κατώγια κάτω από τα σπίτια. Άνθρωποι αγαθοί, απλοί, φιλόξενοι, χαμογελαστοί. Χωριό αγροτικό, όπως τα περισσότερα, το οποίο συνορεύει σήμερα με αυτά του Κάμπου και του Σμαρδακίτου.",
