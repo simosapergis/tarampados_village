@@ -3,7 +3,7 @@ import { HomeCarousel } from "@/components/home-carousel";
 import heroHome from "@public/images/hero/home_1.webp";
 
 export const metadata = {
-  title: "Αρχική | Tarampados Village",
+  title: "Το Χωριό μας | Tarampados Village",
   description:
     "Επίσημο ψηφιακό σπίτι του Ταραμπάδου, με έμφαση στους περιστεριώνες, την παράδοση και την φιλοξενία του χωριού.",
 };
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="space-y-12">
       <PageShell
-        title="Αρχική"
+        title="Το Χωριό μας"
         heroImage={heroHome}
         heroFit="cover"
         introduction={[
@@ -44,10 +44,11 @@ export default function Home() {
             ],
           },
         ]}
-        afterHero={<HomeCarousel locale="el" />}
         locale="el"
       />
-
+      <div className="px-6 pb-12">
+        <HomeCarousel locale="el" />
+      </div>
     </div>
   );
 }

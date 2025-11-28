@@ -61,7 +61,7 @@ const navOrder: RouteKey[] = [
 
 const navLabels: Record<Locale, Record<RouteKey, string>> = {
   el: {
-    home: "Αρχική",
+    home: "Το Χωριό μας",
     history: "Ιστορία",
     religion: "Θρησκεία",
     culture: "Πολιτισμός",
@@ -71,7 +71,7 @@ const navLabels: Record<Locale, Record<RouteKey, string>> = {
     cookies: "Πολιτική Cookies",
   },
   en: {
-    home: "Home",
+    home: "Our Village",
     history: "History",
     religion: "Religion",
     culture: "Culture",
@@ -81,7 +81,7 @@ const navLabels: Record<Locale, Record<RouteKey, string>> = {
     cookies: "Cookie Policy",
   },
   fr: {
-    home: "Accueil",
+    home: "Notre Village",
     history: "Histoire",
     religion: "Religion",
     culture: "Culture",
