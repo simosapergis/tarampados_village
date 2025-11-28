@@ -27,7 +27,6 @@ export default function HomeFr() {
         heroFit="cover"
         introduction={[
           "Découvrez la beauté, la tradition et la culture de notre village.",
-          "Chaque section reflète la hiérarchie grecque afin de guider les visiteurs francophones vers les mêmes itinéraires et archives.",
         ]}
         sections={[
           {

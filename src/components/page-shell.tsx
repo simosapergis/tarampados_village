@@ -47,10 +47,10 @@ export function PageShell({
     ? "text-xs font-semibold uppercase tracking-[0.35em] text-white/80"
     : "text-xs font-semibold uppercase tracking-[0.35em] text-stone-500";
   const titleClass = heroImage
-    ? "text-4xl font-serif text-white"
+    ? "text-3xl md:text-4xl font-serif text-white"
     : "text-4xl font-serif text-stone-900";
   const introClass = heroImage
-    ? "space-y-4 text-lg leading-8 text-white/90"
+    ? "space-y-3 md:space-y-4 text-base md:text-lg leading-7 md:leading-8 text-white/90"
     : "space-y-4 text-lg leading-8 text-stone-700";
 
   return (
@@ -73,7 +73,7 @@ export function PageShell({
               alt=""
               fill
               priority
-              className="object-cover"
+              className={heroFit === "contain" ? "object-contain" : "object-cover"}
               style={{ objectFit: heroFit === "contain" ? "contain" : "cover" }}
               {...(typeof heroImage === "object" && "blurDataURL" in heroImage && heroImage.blurDataURL
                 ? { placeholder: "blur", blurDataURL: heroImage.blurDataURL }
@@ -81,10 +81,10 @@ export function PageShell({
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-          <div className="relative z-10 mx-auto flex min-h-[80svh] w-full max-w-6xl items-end px-6 py-12">
-            <div className="w-full rounded-3xl border border-white/20 bg-black/40 p-10 shadow-2xl backdrop-blur-lg">
+          <div className="relative z-10 mx-auto flex min-h-[80svh] w-full max-w-6xl items-end px-4 py-10 md:px-6 md:py-12">
+            <div className="w-full rounded-3xl border border-white/20 bg-black/40 p-6 md:p-10 shadow-2xl backdrop-blur-lg">
               <p className={eyebrowClass}>{eyebrowCopy[locale]}</p>
-              <h1 className={`${titleClass} py-5`}>{title}</h1>
+              <h1 className={`${titleClass} py-3 md:py-5`}>{title}</h1>
               <div className={introClass}>
                 {introduction.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>

@@ -27,7 +27,6 @@ export default function HomeEn() {
         heroFit="cover"
         introduction={[
           "Discover the beauty, tradition and culture of our village. Tarambados invites international visitors to explore its ravines, dovecotes and living customs.",
-          "These sections mirror the organization of the Greek site so that all audiences can follow the same routes and stories.",
         ]}
         sections={[
           {

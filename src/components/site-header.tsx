@@ -117,9 +117,33 @@ export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    if (!mobileMenuOpen) {
+      return;
+    }
+
+    const html = document.documentElement;
+    const scrollY = window.scrollY;
+    const previousStyles = {
+      bodyOverflow: document.body.style.overflow,
+      htmlOverflow: html.style.overflow,
+      bodyPosition: document.body.style.position,
+      bodyTop: document.body.style.top,
+      bodyWidth: document.body.style.width,
+    };
+
+    document.body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousStyles.bodyOverflow;
+      html.style.overflow = previousStyles.htmlOverflow;
+      document.body.style.position = previousStyles.bodyPosition;
+      document.body.style.top = previousStyles.bodyTop;
+      document.body.style.width = previousStyles.bodyWidth;
+      window.scrollTo(0, scrollY);
     };
   }, [mobileMenuOpen]);
 
@@ -193,10 +217,13 @@ export function SiteHeader() {
             exit={{ opacity: 0 }}
           >
             <div className="flex h-full flex-col">
-              <div className="flex items-center justify-between px-6 py-5">
+              <div className="relative flex items-center justify-between px-6 py-5">
                 <p className="text-sm uppercase tracking-[0.4em] text-slate-300">
                   Menu
                 </p>
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <LocaleDropdown activeLocale={activeLocale} pathname={pathname} />
+                </div>
                 <button
                   type="button"
                   className="inline-flex items-center rounded-full border border-white/30 px-3 py-1.5 text-sm font-semibold"
@@ -215,7 +242,10 @@ export function SiteHeader() {
               >
                 <ul className="space-y-3">
                   {links.map((link) => {
-                    const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
+                    const exactMatch = pathname === link.href;
+                    const childMatch =
+                      link.key !== "home" && pathname.startsWith(`${link.href}/`);
+                    const isActive = exactMatch || childMatch;
                     return (
                       <li key={link.href}>
                         <Link
