@@ -35,6 +35,12 @@ const localeHeadline: Record<Locale, string> = {
   fr: "Le village des pigeonniers",
 };
 
+const menuLabel: Record<Locale, string> = {
+  el: "Μενού",
+  en: "Menu",
+  fr: "Menu",
+};
+
 const localeDescriptionCopy: Record<Locale, string> = {
   el: "Ψηφιακό αρχείο για τις διαδρομές, τις παραδόσεις και τις γλώσσες του Ταραμπάδου.",
   en: "Digital archive for the routes, traditions, and languages of Tarampados.",
@@ -172,12 +178,30 @@ export function SiteHeader() {
             </div>
             <button
               type="button"
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10 md:hidden"
+              className="inline-flex items-center rounded-full border border-white/30 p-3 text-white transition hover:border-white hover:bg-white/10 active:scale-95 active:bg-white/15 md:hidden"
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open navigation menu"
             >
-              <span className="h-px w-5 bg-white" />
-              <span>Menu</span>
+              <span className="sr-only">{menuLabel[activeLocale]}</span>
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5 text-white"
+                aria-hidden
+              >
+                <path
+                  d="M6 7h12M6 12h12M10 17h8"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <circle
+                  cx="6"
+                  cy="17"
+                  r="1.2"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
           </div>
         </div>
@@ -226,11 +250,24 @@ export function SiteHeader() {
                 </div>
                 <button
                   type="button"
-                  className="inline-flex items-center rounded-full border border-white/30 px-3 py-1.5 text-sm font-semibold"
+                  className="inline-flex items-center rounded-full border border-white/30 p-3 text-white transition hover:border-white hover:bg-white/10"
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close navigation menu"
                 >
-                  Close
+                  <span className="sr-only">Close</span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-5 w-5"
+                    aria-hidden
+                  >
+                    <path
+                      d="M7 7l10 10M17 7 7 17"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </button>
               </div>
               <motion.nav

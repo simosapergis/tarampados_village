@@ -8,6 +8,7 @@ export type RouteKey =
   | "religion"
   | "culture"
   | "contact"
+  | "news"
   | "privacy"
   | "terms";
 
@@ -33,6 +34,11 @@ const localeRoutes: Record<RouteKey, LocalePaths> = {
     en: "/en/contact",
     fr: "/fr/contact",
   },
+  news: {
+    el: "/nea",
+    en: "/en/news",
+    fr: "/fr/actualites",
+  },
   privacy: {
     el: "/politiki-aporritou",
     en: "/en/privacy-policy",
@@ -51,6 +57,7 @@ const navOrder: RouteKey[] = [
   "religion",
   "culture",
   "contact",
+  "news",
 ];
 
 const navLabels: Record<Locale, Record<RouteKey, string>> = {
@@ -60,6 +67,7 @@ const navLabels: Record<Locale, Record<RouteKey, string>> = {
     religion: "Θρησκεία",
     culture: "Πολιτισμός",
     contact: "Επικοινωνία",
+    news: "Νέα",
     privacy: "Πολιτική Απορρήτου",
     terms: "Πολιτική Χρήσης",
   },
@@ -69,6 +77,7 @@ const navLabels: Record<Locale, Record<RouteKey, string>> = {
     religion: "Religion",
     culture: "Culture",
     contact: "Contact",
+    news: "News",
     privacy: "Privacy Policy",
     terms: "Terms of Use",
   },
@@ -78,6 +87,7 @@ const navLabels: Record<Locale, Record<RouteKey, string>> = {
     religion: "Religion",
     culture: "Culture",
     contact: "Contact",
+    news: "Actualités",
     privacy: "Politique de confidentialité",
     terms: "Conditions d’utilisation",
   },
