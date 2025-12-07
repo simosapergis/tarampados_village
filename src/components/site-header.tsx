@@ -30,9 +30,9 @@ const localeLabel: Record<Locale, string> = {
 };
 
 const localeHeadline: Record<Locale, string> = {
-  el: "Χωριό της Τήνου με ιστορία & φιλοξενία",
-  en: "Tinos village with history & hospitality",
-  fr: "Village de Tinos avec histoire et hospitalité",
+  el: "Το χωριό των περιστεριώνων",
+  en: "The dovecote village",
+  fr: "Le village des pigeonniers",
 };
 
 const localeDescriptionCopy: Record<Locale, string> = {

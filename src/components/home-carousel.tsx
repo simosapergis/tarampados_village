@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import type { Locale } from "@/i18n/config";
 
 type Slide = {
@@ -185,28 +186,45 @@ export function HomeCarousel({ locale }: HomeCarouselProps) {
           onClick={() => openViewer(active)}
           className="relative block h-[360px] w-full overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
         >
-          <Image
-            key={activeSlide.src}
-            src={activeSlide.src}
-            alt={activeSlide.captions[locale]}
-            fill
-            className={[
-              "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]",
-              isChurchSlide ? "lg:!h-auto" : "",
-            ]
-              .filter(Boolean)
-              .join(" ")}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 960px"
-            priority
-          />
-          <div className="absolute inset-x-0 text-left bottom-0 hidden bg-gradient-to-t from-black/70 via-black/40 to-transparent p-6 text-white sm:block">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
-              {activeSlide.label[locale]}
-            </p>
-            <p className="mt-2 text-lg leading-relaxed">
-              {activeSlide.captions[locale]}
-            </p>
-          </div>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={activeSlide.src}
+              className="absolute inset-0"
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Image
+                src={activeSlide.src}
+                alt={activeSlide.captions[locale]}
+                fill
+                className={[
+                  "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]",
+                  isChurchSlide ? "lg:!h-auto" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 960px"
+                priority
+              />
+              <div className="absolute inset-x-0 bottom-0 hidden bg-gradient-to-t from-black/70 via-black/40 to-transparent p-6 text-left text-white sm:block">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
+                    {activeSlide.label[locale]}
+                  </p>
+                  <p className="mt-2 text-lg leading-relaxed">
+                    {activeSlide.captions[locale]}
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </button>
         <div className="space-y-4 border-t border-stone-200 bg-white/80 px-6 py-4">
           <div className="flex items-center justify-between">
@@ -255,7 +273,7 @@ export function HomeCarousel({ locale }: HomeCarouselProps) {
           role="dialog"
           aria-modal="true"
           aria-labelledby={`${headingId}-viewer`}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 px-4 py-6"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 py-6 backdrop-blur-sm"
         >
           <div className="absolute inset-0" onClick={closeViewer} aria-hidden />
           <div className="relative z-10 w-full max-w-5xl space-y-4 text-white">
